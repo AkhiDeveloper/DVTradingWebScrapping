@@ -1,0 +1,937 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>DV Trading</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" type="image/png" href="http://103.94.159.128:5062/dv_trading/public/Dv_logo.png">
+    <meta name="csrf-token" content="Mp3STSilNEJniwo9hYOaz1Qrk2UjRk90QFB8mpfw">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+        rel="stylesheet">
+
+    <!-- AdminLTE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/css/adminlte.min.css"
+        integrity="sha512-rVZC4rf0Piwtw/LsgwXxKXzWq3L0P6atiQKBNuXYRbg2FoRbSTIY0k2DxuJcs7dk4e/ShtMzglHKBOJxW8EQyQ=="
+        crossorigin="anonymous" />
+
+    <!-- iCheck -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css"
+        integrity="sha512-8vq2g5nHE062j3xor4XxPeZiPjmRDh6wlufQlfC6pdQ/9urJkU07NM0tEREeymP++NczacJ/Q59ul+/K2eYvcg=="
+        crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+        integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw=="
+        crossorigin="anonymous" />
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
+        integrity="sha512-aEe/ZxePawj0+G2R+AaIxgrQuKT68I28qh+wgLrcAJOz3rxCP+TwrK5SPN+E5I+1IQjNtcfvb96HDagwrKRdBw=="
+        crossorigin="anonymous" />
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.semanticui.min.css">
+
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.4/css/select.dataTables.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-bottom: 0rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: inherit;
+        }
+
+        button.dt-button {
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+            box-shadow: none;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        button.dt-button:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        [class*=sidebar-dark-] {
+            background-color: #ffffff;
+        }
+
+        [class*=sidebar-dark-] .sidebar a {
+            color: #000000;
+        }
+
+        [class*=sidebar-dark-] .nav-sidebar>.nav-item.menu-open>.nav-link,
+        [class*=sidebar-dark-] .nav-sidebar>.nav-item:hover>.nav-link,
+        [class*=sidebar-dark-] .nav-sidebar>.nav-item>.nav-link:focus {
+            background-color: rgb(0 0 0 / 29%);
+            color: rgb(0, 0, 0);
+        }
+
+        [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link {
+            color: #000000;
+        }
+
+        [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:focus,
+        [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            color: rgb(0, 0, 0);
+        }
+
+        .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active,
+        .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+            background-color: #6c6c6c;
+            color: #fff;
+        }
+
+        [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active,
+        [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:focus,
+        [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active:hover {
+            background-color: rgb(217 217 217 / 90%);
+            color: #343a40;
+        }
+    </style>
+
+
+
+    </head>
+
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
+    <div class="wrapper">
+        <!-- Main Header -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown user-menu">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+
+                        <span class="d-none d-md-inline">Maakali and Laxmi Enterprises</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <!-- User image -->
+                        <li class="user-header bg-primary">
+                                                            <img src="https://assets.infyom.com/logo/blue_logo_150x150.png" width="150"
+                                    height="150" class="brand-image img-circle elevation-2">
+                                                        <p>
+                                Maakali and Laxmi Enterprises
+                                <small>Member since Sep. 2022</small>
+                            </p>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <a href="http://103.94.159.128:5062/dv_trading/admin/get_profile" class="btn btn-default btn-flat">Profile</a>
+                            <a href="#" class="btn btn-default btn-flat float-right"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Sign out
+                            </a>
+                            <form id="logout-form" action="http://103.94.159.128:5062/dv_trading/logout" method="POST" class="d-none">
+                                <input type="hidden" name="_token" value="Mp3STSilNEJniwo9hYOaz1Qrk2UjRk90QFB8mpfw">                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="http://103.94.159.128:5062/dv_trading/home" class="brand-link">
+        <img src="http://103.94.159.128:5062/dv_trading/public/Dv_logo.png"
+             alt="DV Trading Logo"
+             class="brand-image bg-white">
+        <span class="brand-text px-2 font-weight-light">DV Trading</span>
+    </a>
+
+    <div class="sidebar">
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <style>
+    .menu-item-show {
+        display: block;
+    }
+
+    .menu-item-hide {
+        display: none;
+    }
+</style>
+<li class="nav-item">
+    <a href="http://103.94.159.128:5062/dv_trading/admin/user" class="nav-link ">
+        <i class="fas fa-users nav-icon"></i>
+        <p>Users</p>
+    </a>
+</li>
+
+<li
+    class="nav-item has-treeview ">
+    <a href="#" class="nav-link">
+        <i class="fas fa-shopping-cart nav-icon"></i>
+        <p>
+            Manage Outlets
+            <i class="fas fa-angle-left right"></i>
+        </p>
+    </a>
+    <ul
+        class="nav nav-treeview menu-item-hide ">
+        <li class="nav-item">
+            <a href="http://103.94.159.128:5062/dv_trading/admin/outlets" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Outlets</p>
+            </a>
+        </li>
+            </ul>
+</li>
+
+    <li class="nav-item">
+        <a href="http://103.94.159.128:5062/dv_trading/admin/distributor-wise-order"
+            class="nav-link ">
+            <i class="fas fa-exchange-alt nav-icon"></i>
+            <p>Purchase Request</p>
+        </a>
+    </li>
+
+
+    <li
+        class="nav-item has-treeview ">
+        <a href="#" class="nav-link">
+            <i class="fas fa-tags nav-icon"></i>
+            <p>
+                Manage Products
+                <i class="fas fa-angle-left right"></i>
+            </p>
+        </a>
+        <ul
+            class="nav nav-treeview menu-item-hide ">
+            <li class="nav-item">
+                <a href="http://103.94.159.128:5062/dv_trading/admin/products"
+                    class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Products</p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="http://103.94.159.128:5062/dv_trading/admin/product/business"
+                    class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Business</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://103.94.159.128:5062/dv_trading/admin/product/categories"
+                    class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Categories</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://103.94.159.128:5062/dv_trading/admin/product/sub-categories"
+                    class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sub Categories</p>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="nav-item">
+        <a href="http://103.94.159.128:5062/dv_trading/admin/saleReturns"
+            class="nav-link ">
+            <i class="fa fa-undo  nav-icon" aria-hidden="true"></i>
+            <p>Returns</p>
+        </a>
+    </li>
+
+
+
+<li
+    class="nav-item has-treeview ">
+    <a href="#" class="nav-link">
+        <i class="fas fa-receipt nav-icon"></i>
+        <p>
+            Invoicing
+            <i class="fas fa-angle-left right"></i>
+        </p>
+    </a>
+    <ul
+        class="nav nav-treeview menu-item-hide ">
+        <li class="nav-item">
+            <a href="http://103.94.159.128:5062/dv_trading/admin/orders" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Orders</p>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="http://103.94.159.128:5062/dv_trading/admin/billing" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Billing</p>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<li
+    class="nav-item has-treeview ">
+    <a href="#" class="nav-link">
+        <i class="fas fa-file-alt nav-icon"></i>
+        <p>
+            Report
+            <i class="fas fa-angle-left right"></i>
+        </p>
+    </a>
+    <ul
+        class="nav nav-treeview menu-item-hide ">
+        <li class="nav-item">
+            <a href="http://103.94.159.128:5062/dv_trading/admin/calls-data"
+                class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Calls Report</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="http://103.94.159.128:5062/dv_trading/admin/stockCounts"
+                class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Stock Report</p>
+            </a>
+        </li>
+                    </ul>
+</li>
+
+<li
+    class="nav-item has-treeview ">
+    <a href="#" class="nav-link">
+        <i class="fas fa-dot-circle nav-icon"></i>
+        <p>
+            Targets
+            <i class="fas fa-angle-left right"></i>
+        </p>
+    </a>
+    <ul
+        class="nav nav-treeview menu-item-hide ">
+
+                    <li class="nav-item">
+                <a href="http://103.94.159.128:5062/dv_trading/admin/quotation"
+                    class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Value Target</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://103.94.159.128:5062/dv_trading/admin/category-target"
+                    class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Category Target</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="http://103.94.159.128:5062/dv_trading/admin/feature-product-target"
+                    class="nav-link ">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Focused Product</p>
+                </a>
+            </li>
+            </ul>
+</li>
+
+
+<li class="nav-item">
+    <a href="http://103.94.159.128:5062/dv_trading/admin/routeName" class="nav-link ">
+        <i class="fa fa-road nav-icon" aria-hidden="true"></i>
+        <p>Routes</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </nav>
+    </div>
+
+</aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="background: #dfefff63;">
+            <section class="content">
+                        <div class="container-fluid">
+
+        <div class="p-3 row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-xl-3">
+                        <a href="#">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden ms-3">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                Good Day!! </p>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <h4 class="fs-4 flex-grow-1 mb-0">
+                                                    Maakali and Laxmi Enterprises
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div>
+                        </a>
+                    </div><!-- end col -->
+
+                    <div class="col-xl-9">
+                                                    <a href="#">
+                                                    <div class="card card-animate">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-grow-1 overflow-hidden ms-3">
+                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                            Target (NRP)</p>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <h4 class="fs-4 flex-grow-1 mb-0">
+                                                                                                0
+                                                <span class="counter-value">
+                                                </span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 overflow-hidden ms-3">
+                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                            Achievement (MTD) </p>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <h4 class="fs-4 flex-grow-1 mb-0">
+                                                0%
+                                                <span class="counter-value">
+                                                </span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- end card body -->
+                        </div>
+                        </a>
+                    </div><!-- end col -->
+
+                </div><!-- end row -->
+            </div><!-- end col -->
+        </div>
+
+        <div class="p-3 row">
+            <div class="col-md-12">
+                <div class="row">
+                                            <div class="col-xl-3">
+                            <a href="http://103.94.159.128:5062/dv_trading/admin/users/dse">
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 overflow-hidden ms-3">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                    DSE </p>
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <h4 class="fs-4 flex-grow-1 mb-0">
+                                                        3 <span class="counter-value">
+                                                        </span></h4>
+                                                </div>
+                                                <p class="text-muted text-truncate mb-0">
+                                                    <b>Active</b>
+                                                    [2]
+                                                    <b>Inactive</b>
+                                                    [1]
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div>
+                            </a>
+                        </div><!-- end col -->
+
+
+                                            <div class="col-xl-6">
+                            <a href="#">
+                                <div class="card card-animate">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 overflow-hidden ms-3">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                    Avaibility
+                                                </p>
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <h4 class="fs-4 flex-grow-1 mb-0">
+                                                                                                                    0%
+                                                                                                                <span class="counter-value">
+                                                        </span>
+                                                    </h4>
+                                                </div>
+                                                <p class="text-muted text-truncate mb-0">
+                                                    <b>In Amount</b>
+                                                    [ 172943 ]
+                                                    <b>Total</b>
+                                                    [ 0 ]
+                                                </p>
+
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden ms-3">
+                                                <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                    Sufficient
+                                                </p>
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <h4 class="fs-4 flex-grow-1 mb-0">
+                                                                                                                    0%
+                                                                                                                <span class="counter-value">
+                                                        </span>
+                                                    </h4>
+                                                </div>
+                                                <p class="text-muted text-truncate mb-0">
+                                                    <b>In Amount</b>
+                                                    [ -172943 ]
+                                                    <b>Total</b>
+                                                    [ 0 ]
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                </div>
+                            </a>
+                        </div><!-- end col -->
+
+                    <div class="col-xl-3">
+                        <a href="http://103.94.159.128:5062/dv_trading/admin/outlets">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden ms-3">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                Outlets </p>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <h4 class="fs-4 flex-grow-1 mb-0">
+                                                    489
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h4>
+                                            </div>
+                                            <p class="text-muted text-truncate mb-0">
+                                                <b>Order Party</b>
+                                                [
+                                                418
+                                                ]
+                                                <b>No order Party</b>
+                                                [
+                                                0
+                                                ]
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div>
+                        </a>
+                    </div><!-- end col -->
+
+                    <div class="col-xl-3">
+                        <a href="http://103.94.159.128:5062/dv_trading/admin/products">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden ms-3">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                Product </p>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <h4 class="fs-4 flex-grow-1 mb-0">
+                                                                                                        240
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h4>
+                                            </div>
+                                            <p class="text-muted text-truncate mb-0">
+                                                <b>Total brands</b>
+
+                                                [
+                                                14
+                                                ]
+
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div>
+                        </a>
+                    </div><!-- end col -->
+                    <div class="col-xl-9">
+                        <a href="#">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden ms-3">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                Total Call </p>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <h4 class="fs-4 flex-grow-1 mb-0">
+                                                    81
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h4>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-3">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                Success Call </p>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <h4 class="fs-4 flex-grow-1 mb-0">
+                                                    63
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h4>
+                                            </div>
+
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-3">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                Unsuccess Call </p>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <h4 class="fs-4 flex-grow-1 mb-0">
+                                                    18
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h4>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-3">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                Remaining Call </p>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <h4 class="fs-4 flex-grow-1 mb-9">
+                                                    0
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h4>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div><!-- end card body -->
+                            </div>
+                        </a>
+                    </div><!-- end col -->
+
+                </div><!-- end row -->
+                <div class="row">
+                    <div class="col-xl-4">
+                        <a href="http://103.94.159.128:5062/dv_trading/admin/orders">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate">Monthly Data</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden ms-3">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                Orders
+                                            </p>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <h4 class="fs-4 flex-grow-1 mb-0">
+                                                    560
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h4>
+                                            </div>
+                                            <div>
+                                                <h5 class="fs-4 flex-grow-1 mb-0">
+                                                    Value: 876653.03
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h5>
+
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-3">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                Pending </p>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <h4 class="fs-4 flex-grow-1 mb-0">
+
+                                                    365
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div>
+                        </a>
+                    </div><!-- end col -->
+
+                    <div class="col-xl-4">
+                        <a href="http://103.94.159.128:5062/dv_trading/admin/billing">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate">Monthly Data</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden ms-3">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                Invoice </p>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <h4 class="fs-4 flex-grow-1 mb-0">
+                                                    195
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-3">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                Sales Return </p>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <h4 class="fs-4 flex-grow-1 mb-0">
+                                                    0
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div>
+                        </a>
+                    </div><!-- end col -->
+
+                    <div class="col-xl-4">
+                        <a href="http://103.94.159.128:5062/dv_trading/admin/cancelled">
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate">Monthly Data</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden ms-3">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
+                                                Cancelled </p>
+                                            <div class="d-flex align-items-center mb-3">
+                                                <h4 class="fs-4 flex-grow-1 mb-0">
+                                                    0
+                                                    <span class="counter-value">
+                                                    </span>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div>
+                        </a>
+                    </div><!-- end col -->
+                </div>
+            </div><!-- end col -->
+        </div>
+    </div>
+            </section>
+        </div>
+
+    </div>
+
+    <style>
+        .report-bug-btn {
+            position: sticky;
+            bottom: 15px;
+            float: right;
+            margin-right: 20px;
+        }
+    </style>
+    <div class="report-bug-btn no-print">
+        <a href="#!" type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+            data-target="#reportbug">Report Bug</a>
+    </div>
+
+    <!--Report bug modal Modal -->
+    <div class="modal fade" id="reportbug" tabindex="-1" role="dialog" aria-labelledby="reportbugLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="max-height: 80vh;overflow:auto;">
+                <form action="http://103.94.159.128:5062/dv_trading/admin/submit-bug" enctype="multipart/form-data" method="POST">
+                    <input type="hidden" name="_token" value="Mp3STSilNEJniwo9hYOaz1Qrk2UjRk90QFB8mpfw">
+    <div class="modal-header bg-white" style="position: sticky;top:0;z-index:2;">
+                        <h5 class="modal-title" id="reportbugLabel">Report Bug</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                                                <div>
+                            <p style="color: gray;">
+                                Note : Fields with (<span style="color: red;">*</span>) are required.
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category <span style="color: red;">*</span></label>
+                            <select name="category" id="category" class="form-control" required>
+                                <option value="" selected hidden>Select one</option>
+                                <option value="Web">Web App</option>
+                                <option value="Mobile">Mobile App</option>
+                                <option value="NewFeature">New Feature</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="url">URL (copy paste above url here)</label>
+                            <input type="url" name="url" id="url" placeholder="URL"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="desc">Description <span style="color: red;">*</span></label>
+                            <textarea name="desc" id="desc" class="form-control" rows="6"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="expect">What it should do</label>
+                            <textarea name="expect" id="expect" class="form-control" rows="6"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Screenshot</label>
+                            <input type="file" name="image" id="image" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer bg-white" style="position: sticky;bottom:0;">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/js/adminlte.min.js"
+        integrity="sha512-++c7zGcm18AhH83pOIETVReg0dr1Yn8XTRw+0bWSIWAVCAwz1s2PwnSj4z/OOyKlwSXc4RLg3nnjR22q0dhEyA=="
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+        integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg=="
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"
+        integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg=="
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"
+        integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A=="
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"
+        integrity="sha512-J+763o/bd3r9iW+gFEqTaeyi+uAphmzkE/zU8FxY6iAvD3nQKXa+ZAWkBI9QS9QkYEKddQoiy0I5GDxKf/ORBA=="
+        crossorigin="anonymous"></script>
+
+
+    <script>
+        $(function() {
+            bsCustomFileInput.init();
+
+        });
+
+        $("input[data-bootstrap-switch]").each(function() {
+            $(this).bootstrapSwitch('state', $(this).prop('checked'));
+        });
+    </script>
+
+
+    </body>
+
+</html>
